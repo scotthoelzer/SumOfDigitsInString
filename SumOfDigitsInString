@@ -1,0 +1,51 @@
+package SumOfDigitsInString;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Scott Hoelzer
+ * This program adds the digits contained in a string input
+ * 
+ */
+public class SumOfDigitsInString {
+    
+    static Scanner keyboard = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        String numsToAdd;
+        int sum;
+        
+        numsToAdd = getNums();
+        sum = calcSum(numsToAdd);
+        
+        System.out.println("The sum of the numbers is " + sum + ".");
+    }
+
+//method gets user input for the numbers to add    
+    private static String getNums() {
+        String nums;
+        System.out.print("Please enter the numbers you would like to add with "
+                + "no separation: ");
+        nums = keyboard.next();
+        return nums;
+    }
+
+//method receives string of numbers and converts them for addition    
+    private static int calcSum(String numsToAdd) {
+        int[] nums = new int[numsToAdd.length()];
+        int sum = 0;
+        
+//for loop to convert string to character array
+        for(int i = 0; i < numsToAdd.length(); i++){
+            nums[i] = Integer.parseInt(numsToAdd.charAt(i) + "");
+        }
+        
+//for loop adds numbers in array together
+        for(int i = 0; i < nums.length; i++){
+            sum += nums[i];
+        }
+        
+        return sum;
+    }
+}
